@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns:haohao="http://www.viperious.com/haohao"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.viperious.com/haohao
+       http://www.viperious.com/haohao/haohao-annotation.xsd
+       http://dubbo.apache.org/schema/dubbo
+       http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+
+
+<!--    <context:property-placeholder></context:property-placeholder>-->
+
+<!--    <mvc:annotation-driven></mvc:annotation-driven>-->
+
+    <dubbo:application name="sss"></dubbo:application>
+
+<!--    <bean id="userDao3" class="com.viperious.factory.MyBeanFactory3"></bean>-->
+
+    <!--配置工厂-->
+<!--    <bean id="myBeanFactory2" class="com.viperious.factory.MyBeanFactory2"></bean>-->
+
+<!--    <bean id="userDao2" factory-bean="myBeanFactory2" factory-method="userDao">-->
+<!--        <constructor-arg name="username" value="hahaha"></constructor-arg>-->
+<!--    </bean>-->
+
+<!--    <bean id="userDao1" class="com.viperious.factory.MyBeanFactory1" factory-method="userDao">-->
+<!--        <constructor-arg name="name" value="haha"></constructor-arg>-->
+<!--        <constructor-arg name="age" value="18"></constructor-arg>-->
+<!--    </bean>-->
+
+    <!--配置UserServiceImpl-->
+<!--    <bean id="userService" name="aaa,bbb,ccc" class="com.viperious.service.impl.UserServiceImpl">-->
+<!--        <constructor-arg name="name" value="aaa"></constructor-arg>-->
+<!--        <property name="userDao" ref="userDao"></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="userService" class="com.viperious.service.impl.UserServiceImpl">-->
+<!--        <property name="stringList">-->
+<!--            <list>-->
+<!--                <value>aaa</value>-->
+<!--                <value>bbb</value>-->
+<!--                <value>ccc</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        <property name="userDaoList">-->
+<!--            <list>-->
+<!--                <bean class="com.viperious.dao.impl.UserDaoImpl"></bean>-->
+<!--                <bean class="com.viperious.dao.impl.UserDaoImpl"></bean>-->
+<!--                <bean class="com.viperious.dao.impl.UserDaoImpl"></bean>-->
+<!--                <ref bean="userDao"></ref>-->
+<!--                <ref bean="userDao1"></ref>-->
+<!--                <ref bean="userDao2"></ref>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--        <property name="stringSet">-->
+<!--            <set>-->
+<!--                <value>aaa</value>-->
+<!--                <value>bbb</value>-->
+<!--                <value>aaa</value>-->
+<!--            </set>-->
+<!--        </property>-->
+<!--        <property name="userDaoSet">-->
+<!--            <set>-->
+<!--                <bean class="com.viperious.dao.impl.UserDaoImpl"></bean>-->
+<!--                <bean class="com.viperious.dao.impl.UserDaoImpl"></bean>-->
+<!--                <bean class="com.viperious.dao.impl.UserDaoImpl"></bean>-->
+<!--                <ref bean="userDao"></ref>-->
+<!--                <ref bean="userDao1"></ref>-->
+<!--                <ref bean="userDao1"></ref>-->
+<!--            </set>-->
+<!--        </property>-->
+<!--        <property name="map">-->
+<!--            <map>-->
+<!--                <entry key="d1" value-ref="userDao"></entry>-->
+<!--                <entry key="d2" value-ref="userDao1"></entry>-->
+<!--                <entry key="d3" value-ref="userDao2"></entry>-->
+<!--            </map>-->
+<!--        </property>-->
+<!--        <property name="properties">-->
+<!--            <props>-->
+<!--                <prop key="p1">ppp</prop>-->
+<!--                <prop key="p1">ppp</prop>-->
+<!--                <prop key="p3">ppp</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    <import resource="classpath:applicationContext-user.xml"></import>-->
+<!--    <import resource="classpath:applicationContext-orders.xml"></import>-->
+
+    <bean id="userService" class="com.viperious.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao"></property>
+<!--        <property name="userName" value="hahaha"></property>-->
+        <property name="userMapper" ref="userMapper"></property>
+    </bean>
+
+    <!--配置UserDaoImpl-->
+    <bean id="userDao" name="aaa,bbb" class="com.viperious.dao.impl.UserDaoImpl">
+    </bean>
+
+<!--    <bean class="com.viperious.processor.MyBeanPostProcessor"></bean>-->
+
+<!--    <bean class="com.viperious.processor.TimeLogBeanPostProcessor"></bean>-->
+
+<!--    <bean class="com.viperious.processor.MyBeanFactoryPostProcessor"></bean>-->
+
+<!--    <bean class="com.viperious.processor.MyBeanDefinitionRegistryPostProcessor"></bean>-->
+
+<!--    <bean class="com.viperious.processor.MyComponentBeanFactoryPostProcessor"></bean>-->
+
+<!--    <alias name="userDao" alias="xxx"></alias>-->
+<!--    <alias name="userDao" alias="yyy"></alias>-->
+
+<!--    <beans profile="dev">-->
+<!--        <bean id="userService1" class="com.viperious.service.impl.UserServiceImpl"></bean>-->
+<!--    </beans>-->
+
+<!--    <beans profile="test">-->
+<!--        <bean id="userDao1" class="com.viperious.dao.impl.UserDaoImpl"></bean>-->
+<!--    </beans>-->
+
+    <!--使用自定义命名空间的标签-->
+    <haohao:annotation-driven></haohao:annotation-driven>
+
+    <!--加载properties文件-->
+    <context:property-placeholder location="jdbc.properties"/>
+
+<!--    &lt;!&ndash;配置数据源信息&ndash;&gt;-->
+<!--    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>-->
+<!--        <property name="url" value="jdbc:mysql://localhost:3306/viperious?useSSL=false"></property>-->
+<!--        <property name="username" value="root"></property>-->
+<!--        <property name="password" value="root"></property>-->
+<!--    </bean>-->
+
+    <!--配置数据源信息-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+    <!--配置SqlSessionFactoryBean,作用将SqlSessionFactoryBean存储到spring容器-->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--配置MapperScannerConfigurer,作用扫描指定的包,产生Mapper对象存储到spring容器-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.viperious.mapper"></property>
+    </bean>
+
+
+<!--    &lt;!&ndash;配置Connection&ndash;&gt;-->
+<!--    <bean id="aClass" class="java.lang.Class" factory-method="forName">-->
+<!--        <constructor-arg name="className" value="com.mysql.jdbc.Driver"></constructor-arg>-->
+<!--    </bean>-->
+
+<!--    <bean id="connection" class="java.sql.DriverManager" factory-method="getConnection" scope="prototype">-->
+<!--        <constructor-arg name="url" value="jdbc:mysql://localhost:3306/mysql"></constructor-arg>-->
+<!--        <constructor-arg name="user" value="root"></constructor-arg>-->
+<!--        <constructor-arg name="password" value="root"></constructor-arg>-->
+<!--    </bean>-->
+<!--    &lt;!&ndash;配制日期对象&ndash;&gt;-->
+<!--    <bean id="simpleDateFormat" class="java.text.SimpleDateFormat">-->
+<!--        <constructor-arg name="pattern" value="yyyy-MM-dd HH:mm:ss"></constructor-arg>-->
+<!--    </bean>-->
+<!--    <bean id="date" factory-bean="simpleDateFormat" factory-method="parse">-->
+<!--        <constructor-arg name="source" value="2023-01-05 22:38:50"></constructor-arg>-->
+<!--    </bean>-->
+
+<!--    <bean id="in" class="org.apache.ibatis.io.Resources" factory-method="getResourceAsStream">-->
+<!--        <constructor-arg name="resource" value="mybatis-config.xml"></constructor-arg>-->
+<!--    </bean>-->
+
+<!--    <bean id="builder" class="org.apache.ibatis.session.SqlSessionFactoryBuilder"></bean>-->
+
+<!--    <bean id="sqlSessionFactory" factory-bean="builder" factory-method="build">-->
+<!--        <constructor-arg name="inputStream" ref="in"></constructor-arg>-->
+<!--    </bean>-->
+
+</beans>
