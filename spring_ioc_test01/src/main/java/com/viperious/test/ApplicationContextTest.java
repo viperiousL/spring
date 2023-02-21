@@ -28,7 +28,7 @@ public class ApplicationContextTest {
         UserService userService = (UserService) applicationContext.getBean("userService");//beanName
         userService.show();
 //        UserService userService = (UserService) applicationContext.getBean("userService");//beanName
-        //UserService userService = (UserService) applicationContext.getBean("com.viperious.service.impl.UserServiceImpl");//beanName
+        //UserService userService = (UserService) applicationContext.getBean("com.viperious.com.viperious.service.impl.UserServiceImpl");//beanName
 //        System.out.println(userService);
 //        applicationContext.close();
 //        UserService userService = (UserService) applicationContext.getBean("userService");

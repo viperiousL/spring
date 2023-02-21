@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--配置UserServiceImpl-->
-    <bean id="userService" class="com.viperious.service.impl.UserServiceImpl">
+    <bean id="userService" class="com.viperious.com.viperious.service.impl.UserServiceImpl">
         <property name="userDao" ref="userDao"></property>
     </bean>
 

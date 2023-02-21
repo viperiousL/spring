@@ -12,7 +12,7 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--配置目标类-->
-    <bean id="userService" class="com.viperious.service.impl.UserServiceImpl"></bean>
+    <bean id="userService" class="com.viperious.com.viperious.service.impl.UserServiceImpl"></bean>
 
     <!--配置的通知类-->
 <!--    <bean id="myAdvice2" class="com.viperious.advice.MyAdvice2"></bean>-->
@@ -20,7 +20,7 @@
 
     <!--aop配置-->
     <aop:config>
-        <aop:pointcut id="myPointcut2" expression="execution(* com.viperious.service.impl.*.*(..))"/>
+        <aop:pointcut id="myPointcut2" expression="execution(* com.viperious.com.viperious.service.impl.*.*(..))"/>
         <aop:advisor advice-ref="myAdvice3" pointcut-ref="myPointcut2"></aop:advisor>
     </aop:config>
 

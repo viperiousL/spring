@@ -13,20 +13,20 @@ public class MyAdvice {
     @Pointcut("execution(* com.viperious.service.impl.*.*(..))")
     public void myPointcut(){}
 
-    //<aop:before method="beforeAdvice" pointcut-ref="execution(* com.viperious.service.impl.*.*(..))"/>
-//    @Before("execution(* com.viperious.service.impl.*.*(..))")
+    //<aop:before method="beforeAdvice" pointcut-ref="execution(* com.viperious.com.viperious.service.impl.*.*(..))"/>
+//    @Before("execution(* com.viperious.com.viperious.service.impl.*.*(..))")
     public void beforeAdvice(JoinPoint joinPoint){
         System.out.println("当前目标对象是:"+joinPoint.getTarget());
         System.out.println("表达式:"+joinPoint.getStaticPart());
         System.out.println("前置的增强....");
     }
 
-//    @AfterReturning("execution(* com.viperious.service.impl.*.*(..))")
+//    @AfterReturning("execution(* com.viperious.com.viperious.service.impl.*.*(..))")
     public void afterReturningAdvice(){
         System.out.println("后置的增强....");
     }
 
-//    @Around("execution(* com.viperious.service.impl.*.*(..))")
+//    @Around("execution(* com.viperious.com.viperious.service.impl.*.*(..))")
     @Around("MyAdvice.myPointcut()")
     public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         System.out.println("环绕前的增强....");
@@ -36,13 +36,13 @@ public class MyAdvice {
         return res;
     }
 
-//    @AfterThrowing(pointcut = "execution(* com.viperious.service.impl.*.*(..))",throwing = "e")
+//    @AfterThrowing(pointcut = "execution(* com.viperious.com.viperious.service.impl.*.*(..))",throwing = "e")
     public void afterThrowingAdvice(Throwable e){
         System.out.println("当前异常信息是:"+e);
         System.out.println("异常抛出通知...报异常才执行");
     }
 
-//    @After("execution(* com.viperious.service.impl.*.*(..))")
+//    @After("execution(* com.viperious.com.viperious.service.impl.*.*(..))")
     public void afterAdvice(){
         System.out.println("最终的增强....");
     }

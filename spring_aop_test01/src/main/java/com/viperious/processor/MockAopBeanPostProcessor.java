@@ -24,7 +24,7 @@ public class MockAopBeanPostProcessor implements BeanPostProcessor, ApplicationC
 //        //目的:对UserServiceImpl中的show1和show2方法进行增强,增强的方法存在于MyAdvice中
 //        //问题1:筛选service.impl包下的所有的类的所有方法都可以进行增强,解决方案if-else
 //        //问题2:MyAdvice怎样获取到?解决方案:从Spring容器中获得MyAdvice
-//        if(bean.getClass().getPackage().getName().equals("com.viperious.service.impl")){
+//        if(bean.getClass().getPackage().getName().equals("com.viperious.com.viperious.service.impl")){
 //            //生成当前Bean的Proxy对象
 //            Object beanProxy = Proxy.newProxyInstance(
 //                    bean.getClass().getClassLoader(),

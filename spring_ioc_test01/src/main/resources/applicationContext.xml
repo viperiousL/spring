@@ -40,12 +40,12 @@
 <!--    </bean>-->
 
     <!--配置UserServiceImpl-->
-<!--    <bean id="userService" name="aaa,bbb,ccc" class="com.viperious.service.impl.UserServiceImpl">-->
+<!--    <bean id="userService" name="aaa,bbb,ccc" class="com.viperious.com.viperious.service.impl.UserServiceImpl">-->
 <!--        <constructor-arg name="name" value="aaa"></constructor-arg>-->
 <!--        <property name="userDao" ref="userDao"></property>-->
 <!--    </bean>-->
 
-<!--    <bean id="userService" class="com.viperious.service.impl.UserServiceImpl">-->
+<!--    <bean id="userService" class="com.viperious.com.viperious.service.impl.UserServiceImpl">-->
 <!--        <property name="stringList">-->
 <!--            <list>-->
 <!--                <value>aaa</value>-->
@@ -99,7 +99,7 @@
 <!--    <import resource="classpath:applicationContext-user.xml"></import>-->
 <!--    <import resource="classpath:applicationContext-orders.xml"></import>-->
 
-    <bean id="userService" class="com.viperious.service.impl.UserServiceImpl">
+    <bean id="userService" class="com.viperious.com.viperious.service.impl.UserServiceImpl">
         <property name="userDao" ref="userDao"></property>
 <!--        <property name="userName" value="hahaha"></property>-->
         <property name="userMapper" ref="userMapper"></property>
@@ -123,7 +123,7 @@
 <!--    <alias name="userDao" alias="yyy"></alias>-->
 
 <!--    <beans profile="dev">-->
-<!--        <bean id="userService1" class="com.viperious.service.impl.UserServiceImpl"></bean>-->
+<!--        <bean id="userService1" class="com.viperious.com.viperious.service.impl.UserServiceImpl"></bean>-->
 <!--    </beans>-->
 
 <!--    <beans profile="test">-->
